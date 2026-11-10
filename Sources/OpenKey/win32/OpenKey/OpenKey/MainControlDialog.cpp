@@ -245,7 +245,7 @@ INT_PTR MainControlDialog::eventProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM
             onUpdateButton();
             break;
         case IDC_BUTTON_GO_SOURCE_CODE:
-            ShellExecute(NULL, _T("open"), _T("https://github.com/tuyenvm/OpenKey"), NULL, NULL, SW_SHOWNORMAL);
+            ShellExecute(NULL, _T("open"), _T("https://github.com/nguyenductai1983/OpenKey"), NULL, NULL, SW_SHOWNORMAL);
             break;
         default:
             if (HIWORD(wParam) == CBN_SELCHANGE) {
@@ -274,11 +274,9 @@ INT_PTR MainControlDialog::eventProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM
         case NM_RETURN: {
             PNMLINK link = (PNMLINK)lParam;
             if (link->hdr.idFrom == IDC_SYSLINK_HOME_PAGE)
-                ShellExecute(NULL, _T("open"), _T("http://open-key.org"), NULL, NULL, SW_SHOWNORMAL);
-            else if (link->hdr.idFrom == IDC_SYSLINK_FANPAGE)
-                ShellExecute(NULL, _T("open"), _T("https://www.facebook.com/OpenKeyVN"), NULL, NULL, SW_SHOWNORMAL);
+                ShellExecute(NULL, _T("open"), _T("https://github.com/nguyenductai1983/OpenKey"), NULL, NULL, SW_SHOWNORMAL);
             else if (link->hdr.idFrom == IDC_SYSLINK_AUTHOR_EMAIL)
-                ShellExecute(NULL, _T("open"), _T("mailto:maivutuyen.91@gmail.com"), NULL, NULL, SW_SHOWNORMAL);
+                ShellExecute(NULL, _T("open"), _T("mailto:nguyenductai1983@gmail.com"), NULL, NULL, SW_SHOWNORMAL);
             break;
         }
         }
