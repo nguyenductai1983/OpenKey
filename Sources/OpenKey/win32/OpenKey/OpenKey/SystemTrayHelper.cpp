@@ -255,7 +255,20 @@ static void loadTrayIcon() {
 		icon = vUseGrayIcon ? IDI_ICON_STATUS_ENG_10 : IDI_ICON_STATUS_ENG;
 		LoadString(GetModuleHandle(0), IDS_TRAY_TITLE, nid.szTip, 128);
 	}
-	nid.hIcon = LoadIcon(GetModuleHandle(0), MAKEINTRESOURCE(icon));
+	if (nid.hIcon) {
+		DestroyIcon(nid.hIcon);
+	}
+	nid.hIcon = (HICON)LoadImage(
+		GetModuleHandle(0),
+		MAKEINTRESOURCE(icon),
+		IMAGE_ICON,
+		GetSystemMetrics(SM_CXSMICON),
+		GetSystemMetrics(SM_CYSMICON),
+		LR_DEFAULTCOLOR
+	);
+	if (!nid.hIcon) {
+		nid.hIcon = LoadIcon(GetModuleHandle(0), MAKEINTRESOURCE(icon));
+	}
 }
 
 void SystemTrayHelper::updateData() {
